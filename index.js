@@ -1,6 +1,7 @@
     const todoInput = document.getElementById('todo-input');
     const addTodoButton = document.getElementById('add-todo');
     const todoList = document.getElementById('todo-list');
+    let taskId = 0;
 
     const addTodo = () => {
         const todoText = todoInput.value.trim();
@@ -16,6 +17,9 @@
         li.appendChild(span);
         todoList.appendChild(li);
         todoInput.value = '';
+
+        taskId++;
+        localStorage.setItem(`taskId_${taskId}`, todoText)
 
         const editButton = document.createElement('button');
         editButton.id = 'edit_btn';
